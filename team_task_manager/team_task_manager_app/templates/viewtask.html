@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            <h2>Информация по задаче:</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+
+                <div>
+                    <h4>Задача пользователя: {{this_user.username}}</h4>
+                </div>
+
+                <div id="title_input"  class="p-2">
+                    <label for="">Задача для пользователя: </label>
+                    <select name="assigned_user" class="mdb-select md-form" searchable="Search here..">
+                    {% for user in users.all %}
+                        {% if user != assigned_user.0 %}
+                        <option value="{{user.id}}"> {{user.username}}</option>
+                        {% endif %}
+                    {% endfor %}
+                    <option selected value="{{ assigned_user.0.id }}">{{ assigned_user.0 }}</option>
+                    </select><br>
+                    <label for="">Дата завершения задачи: </label>
+                    <input type="date" name="due_date" value="{{ todo.due_date|date:'Y-m-d' }}"><br>
+
+                    <div class="form-group">
+                    <label for="">Название задачи:</label>
+                    <input type="text" name="title" class="form-control" value="{{ todo.title }}" required>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="Descr">Описание:</label>
+                    <textarea name="description" rows="5" class="form-control" id="Descr" >{{ todo.description }}</textarea>
+                    </div>
+                    {% if date_completed is not None %}
+                    <label for="">Дата закрытия задачи: </label>
+                    <input type="date" name="due_date" disabled value="{{ date_completed|date:'Y-m-d' }}"><br>
+
+                    <div class="form-group">
+                    <label for="close">Основания для завершения:</label>
+                    <textarea name="description" rows="5" class="form-control" id="close" disabled>{{ completion_notes }}</textarea>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save</button>
+                {% if date_completed is None %}
+                <button type="button" class="btn btn-success" onclick="$('#complete').click()">Complete</button>
+                {% else %}
+                <button type="button" class="btn btn-success" onclick="$('#start').click()">Start</button>
+                {% endif %}
+                <button type="button" class="btn btn-danger" onclick="$('#delete').click()">Delete</button>
+                <button type="button" class="btn btn-danger" onclick="$('#history').click()">History</button>
+            </form>
+        </div>
+    </div>
+     {% if date_completed is None %}
+        <form style='display: none;' method="POST" action="{% url 'completedtask' todo.id %}">
+            {% csrf_token %}
+            <button id="complete" type="submit">Complete</button>
+        </form>
+     {% else %}
+        <form style='display: none;' method="POST" action="{% url 'taskstart' todo.id %}">
+            {% csrf_token %}
+            <button id="start" type="submit">Start</button>
+        </form>
+    {% endif %}
+    <form style='display: none;' method="POST" action="{% url 'deletetask' todo.id %}">
+        {% csrf_token %}
+        <button id="delete" type="submit">Delete</button>
+    </form>
+    <form style='display: none;' method="POST" action="{% url 'history' todo.id %}">
+        {% csrf_token %}
+        <button id="history" type="submit">History</button>
+    </form>
+{% endblock %}

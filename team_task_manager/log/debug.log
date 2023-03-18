@@ -1,0 +1,217 @@
+ERROR 2023-03-18 17:42:08,409 log Internal Server Error: /create/
+Traceback (most recent call last):
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: ОШИБКА:  значение NULL в столбце "modifier_id" отношения "team_task_manager_app_logging" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (1, CREATE, 2023-03-18 13:42:08.364473+00, null, 1).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Python\KURS_work\team_task_manager\team_task_manager_app\views.py", line 98, in createtask
+    log.save()
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 763, in save_base
+    updated = self._save_table(
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 868, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 906, in _do_insert
+    return manager._insert(
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1410, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: ОШИБКА:  значение NULL в столбце "modifier_id" отношения "team_task_manager_app_logging" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (1, CREATE, 2023-03-18 13:42:08.364473+00, null, 1).
+
+ERROR 2023-03-18 17:43:00,900 log Internal Server Error: /create/
+Traceback (most recent call last):
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: ОШИБКА:  значение NULL в столбце "modifier_id" отношения "team_task_manager_app_logging" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (2, CREATE, 2023-03-18 13:43:00.878812+00, null, 2).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Python\KURS_work\team_task_manager\team_task_manager_app\views.py", line 98, in createtask
+    log.save()
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 763, in save_base
+    updated = self._save_table(
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 868, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 906, in _do_insert
+    return manager._insert(
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1410, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: ОШИБКА:  значение NULL в столбце "modifier_id" отношения "team_task_manager_app_logging" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (2, CREATE, 2023-03-18 13:43:00.878812+00, null, 2).
+
+ERROR 2023-03-18 17:47:42,170 log Internal Server Error: /create/
+Traceback (most recent call last):
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Python\KURS_work\team_task_manager\team_task_manager_app\views.py", line 99, in createtask
+    log.modifier.add(request.user)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\utils\functional.py", line 247, in inner
+    return func(self._wrapped, *args)
+AttributeError: 'User' object has no attribute 'add'
+ERROR 2023-03-18 17:52:17,289 log Internal Server Error: /todo/2
+Traceback (most recent call last):
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: ОШИБКА:  значение NULL в столбце "modifier_id" отношения "team_task_manager_app_logging" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (3, UPDATE, 2023-03-18 13:52:17.222851+00, null, 2).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Python\KURS_work\team_task_manager\team_task_manager_app\views.py", line 156, in viewtask
+    log.save()
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 763, in save_base
+    updated = self._save_table(
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 868, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 906, in _do_insert
+    return manager._insert(
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1410, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: ОШИБКА:  значение NULL в столбце "modifier_id" отношения "team_task_manager_app_logging" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (3, UPDATE, 2023-03-18 13:52:17.222851+00, null, 2).
+
+ERROR 2023-03-18 18:00:14,288 log Internal Server Error: /todo/2/complete
+Traceback (most recent call last):
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Python\KURS_work\team_task_manager\team_task_manager_app\views.py", line 169, in completetask
+    'close_date': datetime.datetime.now(),
+NameError: name 'datetime' is not defined
+WARNING 2023-03-18 18:00:14,397 log Not Found: /favicon.ico
+ERROR 2023-03-18 18:00:53,199 log Internal Server Error: /task_completion/2
+Traceback (most recent call last):
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: ОШИБКА:  значение NULL в столбце "modifier_id" отношения "team_task_manager_app_logging" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (8, CLOSE, 2023-03-18 14:00:53.13265+00, null, 2).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Python\KURS_work\team_task_manager\team_task_manager_app\views.py", line 184, in task_completion
+    log.save()
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 763, in save_base
+    updated = self._save_table(
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 868, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\base.py", line 906, in _do_insert
+    return manager._insert(
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1410, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python\kurs_work\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: ОШИБКА:  значение NULL в столбце "modifier_id" отношения "team_task_manager_app_logging" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (8, CLOSE, 2023-03-18 14:00:53.13265+00, null, 2).
+

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <div class="form-group">
+        <form action="/task_completion/{{task.id}}" method="POST">
+            {% csrf_token %}
+            <div class="row justify-content-center mt-5">
+                <h2>Информация по задаче:</h2>
+            </div>
+
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-10">
+                    {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <label for="">Задача пользователя: {{this_user.username}} </label></br>
+            <label for="">Задача для пользователя: {{ assigned_user.0 }} </label></br>
+            <label for="">Дата завершения задачи: </label>
+            <input type="date" name="due_date" disabled value="{{ due_date|date:'Y-m-d' }}"><br>
+            <label for="">Название задачи:</label>
+            <input type="text" name="title" class="form-control" disabled value="{{ task.title }}" required>
+            <label for="Descr">Описание:</label>
+            <textarea name="description" rows="5" class="form-control" id="Descr" disabled>{{ task.description }}</textarea>
+            <label for="">Дата закрытия задачи: </label>
+            <input type="date" name="due_date" value="{{ close_date|date:'Y-m-d' }}"><br>
+            <label for="close">Основания для завершения:</label>
+            <textarea name="completion_notes" rows="5" class="form-control" id="close" ></textarea>
+
+            <button class="btn btn-outline-success mt-2" style="width: 100px;">Submit</button>
+        </form>
+        </div>
+    </div>
+{% endblock %}
+
+

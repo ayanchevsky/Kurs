@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            {% if todos %}
+                 <h2> Текущие задачи: {{ todos.count }} </h2>
+            {% else %}
+                           <h1>Нет задач</h1>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+        {% if todos %}
+            <div class="list-group">
+                {% for todo in todos %}
+                    <a href="{% url 'viewtask' todo.id %}"
+                       class="list-group-item list-group-item-action{% if todo.important %} list-group-item-danger{% endif %}"><b>
+                        {{ todo.title }}</b>
+                        {% if todo.description %} - {{ todo.description|truncatechars:50 }}{% endif %}</b>
+                        {% if todo.due_date %} - {{ todo.due_date|date }}{% endif %}
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center">
+                <h2>Нет ни одной доступной задачи</h2>
+            <br>
+            <a role="button" class="btn btn-primary" href="{% url 'createtask' %}">New Todo</a>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}

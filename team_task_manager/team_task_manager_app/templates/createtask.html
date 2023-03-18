@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            <h2>Новая задача</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+                <div id="title_input"  class="p-2">
+                    <label for="">Задача для пользователя:</label>
+                        <select name="assigned_user" class="mdb-select md-form" searchable="Search here..">
+                            <option value="#" disabled selected>Select User</option>
+                            {% for user in users.all %}
+                            <option value="{{user.id}}">{{user.username}}</option>
+                            {% endfor %}
+                        </select>
+                        <br>
+                        <label for="">Дата завершения задачи:</label>
+                        <input type="date" value="" name="due_date">
+                        <br>
+                        <label for="">Название задачи:</label>
+                        <input type="text" aria-label="Last name" placeholder="description" class="form-control" name="title">
+                    </div>
+                    <div id="task_desc" class="p-2">
+                        <label for="">Описание:</label>
+                        <textarea class="form-control" placeholder="Update description" id="floatingTextarea2" style="height: 100px" name="description"></textarea>
+                    </div>
+                <div id="submit_button" class="p-2">
+                    <button class="btn btn-outline-success">Submit</button>
+                </div>
+        </form>
+        </div>
+    </div>
+{% endblock %}
